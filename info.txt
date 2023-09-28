@@ -1,0 +1,17 @@
+/** create index.js file
+ * then create package.json through type command in
+ * terminal = npm init -y
+ * then install redux = npm install Redux
+ * Now we install a middleware = npm install redux-logger 
+ * to use applyMiddleware in Redux
+ * then install = npm i -g json-server
+ * to run json server
+ * then run this command in cmd because terminal will not run this = json-server db.json
+    npm i axios    to download axios here 
+* to use "store" in redux we have to download 
+    npm i redux
+* to install "redux-thunk" and "redux-logger" 
+    npm i redux-thunk redux-logger
+
+*/
+
