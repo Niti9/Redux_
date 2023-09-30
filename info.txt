@@ -20,3 +20,17 @@
 */
 
 * humein agar getUserAccount ki value dekhni hai 
+
+
+
+/** Now we will use Redux toolkit */
+npm i @reduxjs/toolkit
+
+    in  redux toolkit we don't have  "Provider"
+
+    for that we install "provider" from react-redux because it is not in redux toolkit 
+
+
+
+/** download redux Dev tools from  chrome web store **/
+

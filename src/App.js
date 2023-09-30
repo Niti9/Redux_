@@ -204,7 +204,82 @@
 
 // export default App;
 
+
+
+
+
+
+
+
+
+
 // ab hum use karenge "getUserFullfilled ,pending etc"
+
+// import { useSelector } from "react-redux";
+// import "./App.css";
+// import Account from "./components/Account";
+// import Bonus from "./components/Bonus";
+
+// function App() {
+//   // ab  useSelector aur useDispatch
+//   // Provider se deta hai
+
+//   const amount = useSelector((state) => state.account.amount);
+//   const point = useSelector((state) => state.bonus.points);
+
+//   //iss state.account tak use karne se hum pending, fullfiled ko bhi yahan use kar sakenge
+//   const account = useSelector((state) => state.account);
+
+//   return (
+//     <div className="App">
+//       <h4> App</h4>
+//       {/* Normal condition */}
+
+//       {/* {account.pending ? (
+//         <p> loading...</p>
+//       ) : (
+//         <h3> Current Amount : {amount}</h3>
+//       )} */}
+
+//       {/* or to print error message and output   */}
+//       {account.pending ? (
+//         <p> loading...</p>
+//       ) : account.error ? (
+//         <p>{account.error}</p>
+//       ) : (
+//         <h3> Current Amount : {amount}</h3>
+//       )}
+
+//       {/* getState used for globally access the store data */}
+//       <h3> Total Bonus : {point} </h3>
+
+//       <Account></Account>
+//       <Bonus></Bonus>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Now we will use ReduxToolkit here 
+//no code has been changed 
 
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -251,3 +326,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+

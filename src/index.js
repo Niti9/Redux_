@@ -1,34 +1,46 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {createStore,combineReducers,applyMiddleware} from 'redux';
-import {accountReducer} from './reducers/account';
-import {bonusReducer} from './reducers/bonus';
-import logger from 'redux-logger';
-import thunk from 'redux-thunk';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+// import { createStore, combineReducers, applyMiddleware } from "redux";
+// import { accountReducer } from "./reducers/account";
+// import { bonusReducer } from "./reducers/bonus";
+// import logger from "redux-logger";
+// import thunk from "redux-thunk";
 import { Provider } from 'react-redux';
 
-//to make Store
-const store = createStore(
-  combineReducers({ //it is like we made reducer in test.js file
-      account: accountReducer,
-      bonus: bonusReducer
-  }),
-  // applyMiddleware(logger.default, thunk.default)); // using logger because it is a middleware
-  // ab hum bina default ke use karenge warna "middleware is not a function error aayega"
-  applyMiddleware(logger, thunk)); // using logger because it is a middleware
+//these are import for redux toolkit
+import { configureStore} from "@reduxjs/toolkit";
+import  accountReducer  from "./slices/accountSlice";
+import bonusReducer  from "./slices/bonusSlice";
 
+//creating store in reduxtoolkit
+//here reducer create inside object 'configureStore'
+const store = configureStore({
+  reducer: {
+    account: accountReducer,
+    bonus: bonusReducer,
+  },
+});
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// //to make Store
+// const store = createStore(
+//   combineReducers({ //it is like we made reducer in test.js file
+//       account: accountReducer,
+//       bonus: bonusReducer
+//   }),
+//   // applyMiddleware(logger.default, thunk.default)); // using logger because it is a middleware
+//   // ab hum bina default ke use karenge warna "middleware is not a function error aayega"
+//   applyMiddleware(logger, thunk)); // using logger because it is a middleware
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* provider ko app ke upar niche lagane 
     jaruri hai taaki store usse provide kiya jaa sake */}
-    <Provider store= {store}>
-    <App/>
-
+    <Provider store={store}>
+      <App />
     </Provider>
   </React.StrictMode>
 );
