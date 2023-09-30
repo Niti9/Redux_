@@ -12,6 +12,11 @@
     npm i redux
 * to install "redux-thunk" and "redux-logger" 
     npm i redux-thunk redux-logger
+* to run db.json file  , default port number of json file is 3000
+// but it can create conflict with react port number there fore we use port 8080
+    json-server db.json -p 8080
 
+ * agar humein db.json use karna hai to humein react aur db server ek saath use karna padega
 */
 
+* humein agar getUserAccount ki value dekhni hai 

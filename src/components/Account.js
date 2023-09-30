@@ -46,10 +46,10 @@
 
 // second code here we remove all useState hook
 // and function create in App.js and get or passed props here
-
+ // and also importing here getUserAccount 
 import { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import {increment, decrement, incrementByAmount} from '../actions';
+import {increment, decrement, incrementByAmount, getUserAccount} from '../actions';
 
 function Account() {
   const [value, setValue] = useState(0);
@@ -73,6 +73,12 @@ function Account() {
         <input type="text" onChange={(e) => setValue(+e.target.value)} />
         <button onClick={() => dispatch(incrementByAmount(value))}>
           Increment By {value}
+        </button>
+
+        {/* isse hum db.json se account se 1 id ki value access karenge
+        aur dispatch karenge App.js mein */}
+        <button onClick={() => dispatch(getUserAccount(1))}>
+          User Account 
         </button>
       </div>
     </div>

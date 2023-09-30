@@ -3,14 +3,7 @@
 /** REACT REDUX */
 //Here we try to make "global state " to "redux"
 //"useSelector " help to access state from React
-//"useDispatch" change state from anywhere 
-
-
-
-
-
-
-
+//"useDispatch" change state from anywhere
 
 // import './App.css';
 // // import AddProduct from './AddProduct';
@@ -65,15 +58,6 @@
 
 // export default App;
 
-
-
-
-
-
-
-
-
-
 // //Now we try to pass prop from
 // //App.js to account and bonus.js
 
@@ -101,16 +85,11 @@
 //     setAccount({ amount: account.amount + value });
 //   };
 
-
-
 //   const incrementBonus = () => {
 //     setBonus({ points: bonus.points + 1 });
 //   };
 
-
-
 //   return (
-
 
 //     <div className="App">
 //       <h4> App</h4>
@@ -123,7 +102,7 @@
 //         incrementByAmount={incrementByAmount}
 //         account={account}
 //       ></Account>
-//       <Bonus 
+//       <Bonus
 //       incrementBonus={incrementBonus}
 //       bonus={bonus}
 //       ></Bonus>
@@ -133,17 +112,8 @@
 
 // export default App;
 
-
-
-
-
-
-
-
-
-
-//now we will take data from reducers 
-//because globally data will share 
+//now we will take data from reducers
+//because globally data will share
 // in index.js we given store as globally
 
 // import "./App.css";
@@ -151,7 +121,7 @@
 // import Account from "./components/Account";
 // import Bonus from "./components/Bonus";
 
-// // pass store prop here 
+// // pass store prop here
 // function App({store}) {
 
 //   // create all useState hooks here
@@ -171,16 +141,11 @@
 //     setAccount({ amount: account.amount + value });
 //   };
 
-
-
 //   const incrementBonus = () => {
 //     setBonus({ points: bonus.points + 1 });
 //   };
 
-
-
 //   return (
-
 
 //     <div className="App">
 //       <h4> App</h4>
@@ -194,7 +159,7 @@
 //         incrementByAmount={incrementByAmount}
 //         account={account}
 //       ></Account>
-//       <Bonus 
+//       <Bonus
 //       // store index.js se yahan bonus tak pahunchane bhi jaruri
 //       //hai uske liye yahan pass karna padega
 //       store = {store}
@@ -206,23 +171,40 @@
 
 // export default App;
 
+// Ab suru hoga React-redux through importing library
+// aur kuch chize jaise store aur dispatch ko edit or change
+//kar sakenge iss library se
 
+// import { useSelector } from "react-redux";
+// import "./App.css";
+// import Account from "./components/Account";
+// import Bonus from "./components/Bonus";
 
+// function App() {
 
+//   // ab  useSelector aur useDispatch
+//   // Provider se deta hai
 
+//   const amount = useSelector(state=>state.account.amount)
+//   const point = useSelector(state=>state.bonus.points)
 
+//   return (
 
+//     <div className="App">
+//       <h4> App</h4>
+//       {/* getState used for globally access the store data */}
+//       <h3> Current Amount : {amount}</h3>
+//       <h3> Total Bonus : {point} </h3>
 
+//       <Account></Account>
+//       <Bonus></Bonus>
+//     </div>
+//   );
+// }
 
+// export default App;
 
-
-
-
-
-// Ab suru hoga React-redux through importing library 
-// aur kuch chize jaise store aur dispatch ko edit or change 
-//kar sakenge iss library se 
-
+// ab hum use karenge "getUserFullfilled ,pending etc"
 
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -230,19 +212,36 @@ import Account from "./components/Account";
 import Bonus from "./components/Bonus";
 
 function App() {
+  // ab  useSelector aur useDispatch
+  // Provider se deta hai
 
-  // ab  useSelector aur useDispatch 
-  // Provider se deta hai 
+  const amount = useSelector((state) => state.account.amount);
+  const point = useSelector((state) => state.bonus.points);
 
-  const amount = useSelector(state=>state.account.amount)
-  const point = useSelector(state=>state.bonus.points)
+  //iss state.account tak use karne se hum pending, fullfiled ko bhi yahan use kar sakenge
+  const account = useSelector((state) => state.account);
 
   return (
-
     <div className="App">
       <h4> App</h4>
+      {/* Normal condition */}
+
+      {/* {account.pending ? (
+        <p> loading...</p>
+      ) : (
+        <h3> Current Amount : {amount}</h3>
+      )} */}
+
+      {/* or to print error message and output   */}
+      {account.pending ? (
+        <p> loading...</p>
+      ) : account.error ? (
+        <p>{account.error}</p>
+      ) : (
+        <h3> Current Amount : {amount}</h3>
+      )}
+
       {/* getState used for globally access the store data */}
-      <h3> Current Amount : {amount}</h3>
       <h3> Total Bonus : {point} </h3>
 
       <Account></Account>

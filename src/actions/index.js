@@ -23,7 +23,7 @@ export function getUserAccount(id) { // new action for thunk (here dispatch, and
     return async (dispatch, getState) => {
         try {
             dispatch(getAccountUserPending());
-            const { data } = await axios.get(`http://localhost:3000/account/${id}`) //ye db.json ka accounts ka data le rhe hai
+            const { data } = await axios.get(`http://localhost:8080/accounts/${id}`) //ye db.json ka accounts ka data le rhe hai
             dispatch(getAccountUserFulFilled(data.amount))
 
         }
