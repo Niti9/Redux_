@@ -67,9 +67,53 @@
 
 
 
-import {incrementBonus } from '../actions';
-function Bonus({store}) {
+// import {incrementBonus } from '../actions';
+// function Bonus({store}) {
  
+//   return (
+//     <div className="card">
+//       <div className="container">
+//         <h4>
+//           <b>Bonus Component</b>
+//         </h4>
+//         {/* yahan globally getState work karega */}
+//         <h3>Total point : {store.getState().bonus.points}</h3>
+        
+//         {/* yahan  incrementBonus ACTION ko dispatch ki help 
+//         se reducer tak apne aap pahunchayega */}
+//         <button onClick={()=>store.dispatch(incrementBonus())}>Increment + </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Bonus;
+
+
+
+
+
+
+
+
+
+
+// Ab suru hoga React-redux through library
+
+
+import { useDispatch, useSelector } from 'react-redux';
+import {incrementBonus } from '../actions';
+function Bonus() {
+ 
+//here we use "useSelector()" to make record
+//or remember the state like increment,decrement etc
+// and "useDispatch()" used to dispatch the data 
+
+const amount = useSelector(state=>state.account.amount)
+const point = useSelector(state=>state.bonus.points)
+const dispatch = useDispatch();
+
+
   return (
     <div className="card">
       <div className="container">
@@ -77,11 +121,11 @@ function Bonus({store}) {
           <b>Bonus Component</b>
         </h4>
         {/* yahan globally getState work karega */}
-        <h3>Total point : {store.getState().bonus.points}</h3>
+        <h3>Total point : {point}</h3>
         
         {/* yahan  incrementBonus ACTION ko dispatch ki help 
         se reducer tak apne aap pahunchayega */}
-        <button onClick={()=>store.dispatch(incrementBonus())}>Increment + </button>
+        <button onClick={()=>dispatch(incrementBonus())}>Increment + </button>
       </div>
     </div>
   );

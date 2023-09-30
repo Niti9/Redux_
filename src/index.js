@@ -8,7 +8,7 @@ import {accountReducer} from './reducers/account';
 import {bonusReducer} from './reducers/bonus';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-
+import { Provider } from 'react-redux';
 
 //to make Store
 const store = createStore(
@@ -24,7 +24,12 @@ const store = createStore(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App  store = {store}/>
+    {/* provider ko app ke upar niche lagane 
+    jaruri hai taaki store usse provide kiya jaa sake */}
+    <Provider store= {store}>
+    <App/>
+
+    </Provider>
   </React.StrictMode>
 );
 

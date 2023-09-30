@@ -48,21 +48,30 @@
 // and function create in App.js and get or passed props here
 
 import { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import {increment, decrement, incrementByAmount} from '../actions';
 
-function Account({ increment, decrement, incrementByAmount, account }) {
+function Account() {
   const [value, setValue] = useState(0);
+
+  //useSelector used for the state
+  //useDispatch used for 
+  const amount = useSelector(state => state.account.amount)
+  const point = useSelector(state => state.bonus.points)
+  const dispatch = useDispatch();
 
   return (
     <div className="card">
       <div className="container">
         <h4>
-           Account Component 
+          Account Component
         </h4>
-        <h3>Amount:${account.amount}</h3>
-        <button onClick={increment}>Increment +</button>
-        <button onClick={decrement}>Decrement - </button>
+        <h3>Amount:${amount}</h3>
+        {/* Now dispatch hokar hi har chiz change hongi */}
+        <button onClick={() => dispatch(increment())}>Increment +</button>
+        <button onClick={() => dispatch(decrement())}>Decrement - </button>
         <input type="text" onChange={(e) => setValue(+e.target.value)} />
-        <button onClick={() => incrementByAmount(value)}>
+        <button onClick={() => dispatch(incrementByAmount(value))}>
           Increment By {value}
         </button>
       </div>

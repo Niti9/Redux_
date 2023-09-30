@@ -146,60 +146,107 @@
 //because globally data will share 
 // in index.js we given store as globally
 
+// import "./App.css";
+// import { useState } from "react";
+// import Account from "./components/Account";
+// import Bonus from "./components/Bonus";
+
+// // pass store prop here 
+// function App({store}) {
+
+//   // create all useState hooks here
+//   const [account, setAccount] = useState({ amount: 0 });
+//   const [bonus, setBonus] = useState({ points: 0 });
+
+//   //also import here function from account.js
+//   const increment = () => {
+//     setAccount({ amount: account.amount + 1 });
+//   };
+
+//   const decrement = () => {
+//     setAccount({ amount: account.amount - 1 });
+//   };
+
+//   const incrementByAmount = (value) => {
+//     setAccount({ amount: account.amount + value });
+//   };
+
+
+
+//   const incrementBonus = () => {
+//     setBonus({ points: bonus.points + 1 });
+//   };
+
+
+
+//   return (
+
+
+//     <div className="App">
+//       <h4> App</h4>
+//       {/* getState used for globally access the store data */}
+//       <h3> Current Amount : {store.getState().account.amount}</h3>
+//       <h3> Total Bonus : {store.getState().bonus.points} </h3>
+
+//       <Account
+//         increment={increment}
+//         decrement={decrement}
+//         incrementByAmount={incrementByAmount}
+//         account={account}
+//       ></Account>
+//       <Bonus 
+//       // store index.js se yahan bonus tak pahunchane bhi jaruri
+//       //hai uske liye yahan pass karna padega
+//       store = {store}
+//       // ab yahan niche ke extra code ki jarurat nahi hai
+//       ></Bonus>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Ab suru hoga React-redux through importing library 
+// aur kuch chize jaise store aur dispatch ko edit or change 
+//kar sakenge iss library se 
+
+
+import { useSelector } from "react-redux";
 import "./App.css";
-import { useState } from "react";
 import Account from "./components/Account";
 import Bonus from "./components/Bonus";
 
-// pass store prop here 
-function App({store}) {
+function App() {
 
-  // create all useState hooks here
-  const [account, setAccount] = useState({ amount: 0 });
-  const [bonus, setBonus] = useState({ points: 0 });
+  // ab  useSelector aur useDispatch 
+  // Provider se deta hai 
 
-  //also import here function from account.js
-  const increment = () => {
-    setAccount({ amount: account.amount + 1 });
-  };
-
-  const decrement = () => {
-    setAccount({ amount: account.amount - 1 });
-  };
-
-  const incrementByAmount = (value) => {
-    setAccount({ amount: account.amount + value });
-  };
-
-
-
-  const incrementBonus = () => {
-    setBonus({ points: bonus.points + 1 });
-  };
-
-
+  const amount = useSelector(state=>state.account.amount)
+  const point = useSelector(state=>state.bonus.points)
 
   return (
-
 
     <div className="App">
       <h4> App</h4>
       {/* getState used for globally access the store data */}
-      <h3> Current Amount : {store.getState().account.amount}</h3>
-      <h3> Total Bonus : {store.getState().bonus.points} </h3>
+      <h3> Current Amount : {amount}</h3>
+      <h3> Total Bonus : {point} </h3>
 
-      <Account
-        increment={increment}
-        decrement={decrement}
-        incrementByAmount={incrementByAmount}
-        account={account}
-      ></Account>
-      <Bonus 
-      // store index.js se yahan bonus tak pahunchane bhi jaruri
-      //hai uske liye yahan pass karna padega
-      store = {store}
-      // ab yahan niche ke extra code ki jarurat nahi hai
-      ></Bonus>
+      <Account></Account>
+      <Bonus></Bonus>
     </div>
   );
 }
