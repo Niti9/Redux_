@@ -56,10 +56,11 @@
 
 .container{
   text-align: center;
+  background-color:lightgoldenrodyellow;
 }
 
 h3{
-  color: yellow;
+  color: rgb(237, 10, 10);
 }
 
 button{
@@ -81,4 +82,10 @@ input{
 
 p{
   color: white;
+}
+
+h4{
+  color: rgb(35, 6, 164);
+  font-size: large;
+  
 }
