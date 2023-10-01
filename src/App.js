@@ -291,7 +291,7 @@ function App() {
   // ab  useSelector aur useDispatch
   // Provider se deta hai
 
-  const amount = useSelector((state) => state.account.amount);
+  const amount = useSelector(state => state.account.amount);
   const point = useSelector((state) => state.bonus.points);
 
   //iss state.account tak use karne se hum pending, fullfiled ko bhi yahan use kar sakenge

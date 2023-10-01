@@ -116,7 +116,8 @@ function Account() {
   //useSelector used for the state
   //useDispatch used for 
   const amount = useSelector(state => state.account.amount)
-  const point = useSelector(state => state.bonus.points)
+  
+  // const point = useSelector(state => state.bonus.points)
   const dispatch = useDispatch();
 
   return (
@@ -133,9 +134,10 @@ function Account() {
         <button onClick={() => dispatch(incrementByAmount(value))}>
           Increment By {value}
         </button>
-        <button onClick={() => dispatch(getUserAccount(2))}>
+        <button onClick={() => dispatch(getUserAccount(1))}>
           Get User 
         </button>
+        
 
         {/* isse hum db.json se account se 1 id ki value access karenge
         aur dispatch karenge App.js mein */}

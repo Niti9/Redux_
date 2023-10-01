@@ -40,19 +40,21 @@ export const accountSlice = createSlice({
       //yahan value payload means jitni pass ki hogi
       //as a argument utni badegi
     },
-    extraReducers: (builder) => {
-      builder
+  },
+  extraReducers: (builder) => {
+    console.log(builder);
+    builder
       .addCase(getUserAccount.fulfilled, (state, action) => {
         state.amount = action.payload;
         state.pending = false;
-    })
+      })
+      //this is for check if details pending, or rejected
       .addCase(getUserAccount.pending, (state, action) => {
         state.pending = true;
       })
       .addCase(getUserAccount.rejected, (state, action) => {
         state.error = action.error;
-      })
-    },
+      });
   },
 });
 
