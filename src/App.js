@@ -286,6 +286,7 @@ import "./App.css";
 import Account from "./components/Account";
 import Bonus from "./components/Bonus";
 import Reward from "./components/Reward";
+import Admin from "./components/Admin";
 
 function App() {
   // ab  useSelector aur useDispatch
@@ -300,14 +301,7 @@ function App() {
   return (
     <div className="App">
       <h4> App</h4>
-      {/* Normal condition */}
-
-      {/* {account.pending ? (
-        <p> loading...</p>
-      ) : (
-        <h3> Current Amount : {amount}</h3>
-      )} */}
-
+     
       {/* or to print error message and output   */}
       {account.pending ? (
         <p> loading...</p>
@@ -323,6 +317,7 @@ function App() {
       <Account></Account>
       <Bonus></Bonus>
       <Reward></Reward>
+      <Admin></Admin>
     </div>
   );
 }

@@ -15,6 +15,7 @@ import { configureStore} from "@reduxjs/toolkit";
 import  accountReducer  from "./slices/accountSlice";
 import bonusReducer  from "./slices/bonusSlice";
 import rewardReducer from "./reducers/rward";
+import { adminApi } from "./api/adminSlice";
 // import rewardReducer from "./reducers/reward";
 
 //creating store in reduxtoolkit
@@ -23,8 +24,17 @@ const store = configureStore({
   reducer: {
     account: accountReducer,
     bonus: bonusReducer,
-    reward: rewardReducer   
+    reward: rewardReducer,
+    //it is a key of adminApi in square bracket
+    //phir yahan admin name ki state ban jaayegi jismein reducer aa jaayega
+    [adminApi.reducerPath]: adminApi.reducer  
   },
+  //in reduxjs toolkit there is already thunk,logger are present but 
+  //for reduxjsToolkit we have to add middleware 
+  middleware: (GetDefaultMiddleware) =>
+  //yahan middleware mein kya hai kaise hai wo sab 'adminApi' ke andar hai
+  GetDefaultMiddleware().concat(adminApi.middleware),
+
 });
 
 // //to make Store
